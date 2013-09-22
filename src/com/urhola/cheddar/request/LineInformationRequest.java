@@ -3,6 +3,7 @@ package com.urhola.cheddar.request;
 import com.urhola.cheddar.annotation.Title;
 import com.urhola.cheddar.parse.ParseFactory;
 import com.urhola.cheddar.resource.LineInformationResource;
+import java.io.IOException;
 import java.util.List;
 import net.sf.oval.constraint.NotNull;
 
@@ -31,7 +32,7 @@ public class LineInformationRequest extends Request {
     }
 
     @Override
-    public List<LineInformationResource> execute() {
+    public List<LineInformationResource> execute() throws IOException {
         return super.execute();
     }
         

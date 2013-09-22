@@ -5,6 +5,7 @@ import com.urhola.cheddar.annotation.Title;
 import com.urhola.cheddar.parse.ParseFactory;
 import com.urhola.cheddar.resource.GeoCodingResource;
 import com.urhola.cheddar.resource.geocoding.Details;
+import java.io.IOException;
 import java.util.List;
 import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.NotNull;
@@ -43,7 +44,7 @@ public class GeoCodingRequest extends Request {
     private final static String ACTION_NAME = "geocode";
     
     @Override
-    public List<GeoCodingResource> execute() {
+    public List<GeoCodingResource> execute() throws IOException {
         return super.execute();
     }
 

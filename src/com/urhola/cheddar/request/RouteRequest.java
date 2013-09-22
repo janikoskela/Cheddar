@@ -6,6 +6,7 @@ import com.urhola.cheddar.parse.ParseFactory;
 import com.urhola.cheddar.resource.common.Coordinate;
 import com.urhola.cheddar.resource.route.Leg;
 import com.urhola.cheddar.resource.RouteResource;
+import java.io.IOException;
 import java.util.List;
 import net.sf.oval.constraint.NotNull;
 import net.sf.oval.constraint.Range;
@@ -94,7 +95,7 @@ public class RouteRequest extends Request {
     }
     
     @Override
-    public List<RouteResource<Leg>> execute() {
+    public List<RouteResource<Leg>> execute() throws IOException {
         return super.execute();
     }
 
