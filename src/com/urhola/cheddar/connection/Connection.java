@@ -19,22 +19,14 @@ final public class Connection {
     private final static int HTTP_STATUS_OK = 200;
 
     public static String sendRequest(String url) throws IOException {
-        HttpURLConnection urlConnection = null;
-	String out = null;
-        try {
-            URL u = new URL(url);
-            urlConnection = (HttpURLConnection) u.openConnection();
-            urlConnection.setReadTimeout(TIME_OUT_LENGTH);
-            if (urlConnection.getResponseCode() != HTTP_STATUS_OK)
-                return null;
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            out = Connection.readStream(in);
-        } catch(IOException e) {
-              throw new IOException();
-        } 
-        finally {
-            urlConnection.disconnect();
-        }
+        URL u = new URL(url);
+        HttpURLConnection urlConnection = (HttpURLConnection) u.openConnection();
+        urlConnection.setReadTimeout(TIME_OUT_LENGTH);
+        if (urlConnection.getResponseCode() != HTTP_STATUS_OK)
+            throw new IOException();
+        InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+        String out = Connection.readStream(in);
+        urlConnection.disconnect();
         return out;
     }
     
