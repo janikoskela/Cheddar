@@ -7,7 +7,7 @@ Usage
 -
 Usage requires an account which can be requested [here](http://developer.reittiopas.fi/pages/en/account-request.php).
 
-Supported requests
+What can this thing do?
 -
  - [Geocoding](http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#geocode): returns the coordinates and the names of the POIs, stops and addresses
  - [Routing between two coordinate points](http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#route)
