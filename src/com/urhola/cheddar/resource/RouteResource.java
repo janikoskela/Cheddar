@@ -12,7 +12,7 @@ public class RouteResource<T> {
 
     private double length;
     private double duration;
-    private List<Leg<List<Location>>> legs;
+    private List<Leg> legs;
 
     public double getLength() {
         return length;
@@ -22,7 +22,7 @@ public class RouteResource<T> {
         return duration;
     }
 
-    public List<Leg<List<Location>>> getLegs() {
+    public List<Leg> getLegs() {
         return legs;
     }
 }

@@ -27,18 +27,17 @@ public abstract class Request {
     }
     
     protected String getRequestUrl() {
-        //TODO: use stringbuilder instead?
         String requestUrl = "";
         Field[] fields = this.getClass().getDeclaredFields();
         for (int i = 0; i < fields.length; i++) {
             try {
                 fields[i].setAccessible(true);
                 String key = fields[i].getAnnotation(Title.class).value();
-                String value = null;
+                String value;
                 if (fields[i].get(this) instanceof List)
                     value = Utils.convertListToString((List)fields[i].get(this));
                 else if (fields[i].get(this) instanceof Coordinate) 
-                    value = Utils.convertCoordinateToString((Coordinate)fields[i].get(this));
+                    value = ((Coordinate)fields[i].get(this)).toString();
                 else    
                     value = fields[i].get(this).toString();
                 if (value != null) 
@@ -59,7 +58,6 @@ public abstract class Request {
     public <T>List<T> execute() throws IllegalArgumentException, IOException {
         this.validateRequest();
         String url = this.getUrl();
-        System.out.println(url);
         String resp = Connection.sendRequest(url);
         return this.parseResponse(resp);
     }

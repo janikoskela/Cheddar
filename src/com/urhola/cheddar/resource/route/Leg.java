@@ -6,7 +6,7 @@ import java.util.List;
  *
  * @author janikoskela
  */
-public class Leg<T> {
+public class Leg {
     private double length;
     private double duration;
     private String type;

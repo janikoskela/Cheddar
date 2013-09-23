@@ -1,6 +1,5 @@
 package com.urhola.cheddar.util;
 
-import com.urhola.cheddar.resource.common.Coordinate;
 import java.util.List;
 
 /**
@@ -28,9 +27,5 @@ public abstract class Utils {
         } catch (NullPointerException e) {
             return null;
         }
-    }
-    
-    public static String convertCoordinateToString(Coordinate coordinate) {
-        return coordinate.getX() + "," + coordinate.getY();
     }
 }

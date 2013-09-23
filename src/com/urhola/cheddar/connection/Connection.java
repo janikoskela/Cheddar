@@ -22,7 +22,8 @@ final public class Connection {
         URL u = new URL(url);
         HttpURLConnection urlConnection = (HttpURLConnection) u.openConnection();
         urlConnection.setReadTimeout(TIME_OUT_LENGTH);
-        if (urlConnection.getResponseCode() != HTTP_STATUS_OK)
+        int responseCode = urlConnection.getResponseCode();
+        if (responseCode != HTTP_STATUS_OK)
             throw new IOException();
         InputStream in = new BufferedInputStream(urlConnection.getInputStream());
         String out = Connection.readStream(in);
