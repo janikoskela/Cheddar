@@ -1,7 +1,7 @@
 HSL Journey Planner Library
 ===========
 
-Java client library called Cheddar for the use of HSL's (Helsinki Regional Transport Authority) [Journey planner interface (v2)](http://developer.reittiopas.fi/pages/en/home.php). 
+Java client library called Cheddar for the use of HSL's (Helsinki Regional Transport Authority) [Journey planner interface (v2)](http://developer.reittiopas.fi/pages/en/home.php). Designed especially to be used with Android.
 
 Usage
 -
@@ -15,4 +15,4 @@ What can this thing do?
 
 Features
 -
- - Validates all request parameters before the request is sent. Throws IllegalArgumentException if parameter is invalid.
+ - Validates parameters before the request is sent. Throws IllegalArgumentException if parameter is invalid.
