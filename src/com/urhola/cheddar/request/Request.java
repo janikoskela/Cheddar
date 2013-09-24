@@ -1,6 +1,7 @@
 package com.urhola.cheddar.request;
 
 import com.urhola.cheddar.Cheddar;
+import com.urhola.cheddar.Credential;
 import com.urhola.cheddar.annotation.Title;
 import com.urhola.cheddar.connection.Connection;
 import com.urhola.cheddar.resource.common.Coordinate;
@@ -52,7 +53,7 @@ public abstract class Request {
     }
         
     private String getUrl() throws IllegalArgumentException {
-        return (BASE_URL + this.getActionName() + "&user=" + Cheddar.getApiUsername() + "&pass=" + Cheddar.getApiPassword() + "&format=json&" + this.getRequestUrl()).trim();
+        return (BASE_URL + this.getActionName() + "&user=" + Credential.getApiUsernmae() + "&pass=" + Credential.getApiPassword() + "&format=json&" + this.getRequestUrl()).trim();
     }
     
     public <T>List<T> execute() throws IllegalArgumentException, IOException {

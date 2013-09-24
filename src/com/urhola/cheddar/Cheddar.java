@@ -27,18 +27,10 @@ final public class Cheddar {
     }
     
     public static void setApiUsername(String username) {
-        Cheddar.apiUsername = username;
+        Credential.setApiUsernmae(apiUsername);
     }
 
     public static void setApiPassword(String password) {
-        Cheddar.apiPassword = password;
-    }
-    
-    public static String getApiUsername() {
-        return Cheddar.apiUsername;
-    }
-
-    public static String getApiPassword() {
-        return Cheddar.apiPassword;
+        Credential.setApiPassword(apiPassword);
     }
 }
