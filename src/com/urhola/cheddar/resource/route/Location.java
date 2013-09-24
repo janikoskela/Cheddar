@@ -9,8 +9,8 @@ import com.urhola.cheddar.resource.common.Coordinate;
 public class Location {
 
     private Coordinate coord;
-    private float arrTime;
-    private float depTime;
+    private String arrTime;
+    private String depTime;
     private String name;
     private String code;
     private String shortCode;
@@ -21,11 +21,11 @@ public class Location {
     }
 
     public float getArrTime() {
-        return arrTime;
+        return Float.parseFloat(arrTime);
     }
 
     public float getDepTime() {
-        return depTime;
+        return Float.parseFloat(depTime);
     }
 
     public String getName() {

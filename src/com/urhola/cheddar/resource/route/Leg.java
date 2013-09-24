@@ -7,18 +7,18 @@ import java.util.List;
  * @author janikoskela
  */
 public class Leg {
-    private double length;
-    private double duration;
+    private String length;
+    private String duration;
     private String type;
     private String code;
     private List<Location> locs;
     
     public double getLength() {
-        return length;
+        return Double.parseDouble(length);
     }
 
     public double getDuration() {
-        return duration;
+        return Double.parseDouble(duration);
     }
 
     public String getType() {

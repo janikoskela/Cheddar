@@ -5,20 +5,20 @@ package com.urhola.cheddar.resource.common;
  * @author janikoskela
  */
 public class Coordinate {
-    private double x;
-    private double y;
+    private String x;
+    private String y;
 
     public Coordinate(String x, String y) {
-        this.x = Integer.valueOf(x);
-        this.y = Integer.valueOf(y);
+        this.x = x;
+        this.y = y;
     }
 
     public double getX() {
-        return x;
+        return Double.parseDouble(x);
     }
 
     public double getY() {
-        return y;
+        return Double.parseDouble(y);
     }
     
     @Override

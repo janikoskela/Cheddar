@@ -1,7 +1,6 @@
 package com.urhola.cheddar.resource;
 
 import com.urhola.cheddar.resource.route.Leg;
-import com.urhola.cheddar.resource.route.Location;
 import java.util.List;
 
 /**
@@ -10,16 +9,16 @@ import java.util.List;
  */
 public class RouteResource<T> {
 
-    private double length;
-    private double duration;
+    private String length;
+    private String duration;
     private List<Leg> legs;
 
-    public double getLength() {
-        return length;
+    public Double getLength() {
+        return Double.parseDouble(length);
     }
 
-    public double getDuration() {
-        return duration;
+    public Double getDuration() {
+        return Double.parseDouble(duration);
     }
 
     public List<Leg> getLegs() {

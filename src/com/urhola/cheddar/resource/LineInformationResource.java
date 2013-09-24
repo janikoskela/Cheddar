@@ -11,7 +11,7 @@ public class LineInformationResource {
 
     private String code;
     private String code_short;
-    private int transport_type_id;
+    private String transport_type_id;
     private String line_start;
     private String line_end;
     private String name;
@@ -28,7 +28,7 @@ public class LineInformationResource {
     }
 
     public int getTransport_type_id() {
-        return transport_type_id;
+        return Integer.parseInt(transport_type_id);
     }
 
     public String getLine_start() {

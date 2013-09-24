@@ -10,7 +10,7 @@ import com.urhola.cheddar.resource.geocoding.Details;
 public class GeoCodingResource {
 
     private String locType;
-    private int locTypeId;
+    private String locTypeId;
     private String name;
     private String matchedName;
     private String lang;
@@ -36,7 +36,7 @@ public class GeoCodingResource {
         return locType;
     }
 
-    public int getLocationTypeId() {
+    public String getLocationTypeId() {
         return locTypeId;
     }
 
