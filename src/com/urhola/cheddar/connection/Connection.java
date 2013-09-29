@@ -16,7 +16,8 @@ import org.apache.http.util.EntityUtils;
  * @author janikoskela
  */
 final public class Connection {
-
+    
+    private static final int HTTP_STATUS_OK = 200;
     public static String sendRequest(String url) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         String resp = null;
@@ -30,7 +31,7 @@ final public class Connection {
                 public String handleResponse(
                         final HttpResponse response) throws ClientProtocolException, IOException {
                     int status = response.getStatusLine().getStatusCode();
-                    if (status >= 200 && status < 300) {
+                    if (status == HTTP_STATUS_OK) {
                         HttpEntity entity = response.getEntity();
                         return entity != null ? EntityUtils.toString(entity) : null;
                     } else {
@@ -41,7 +42,9 @@ final public class Connection {
             };
             resp = httpClient.execute(httpGet, responseHandler);
 
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+            throw new IOException();
+        }
         finally {
             httpClient.close();
             return resp;
