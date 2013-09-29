@@ -16,7 +16,7 @@ public class LineInformationResource {
     private String line_end;
     private String name;
     private String timetable_url;
-    private List<String> line_shape;
+    private String line_shape; //arr
     private List<LineStop> line_stops;
 
     public String getCode() {
@@ -47,7 +47,7 @@ public class LineInformationResource {
         return timetable_url;
     }
 
-    public List<String> getLine_shape() {
+    public String getLine_shape() {
         return line_shape;
     }
 

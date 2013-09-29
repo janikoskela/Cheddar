@@ -1,12 +1,14 @@
 package com.urhola.cheddar.connection;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 
 /**
@@ -14,29 +16,35 @@ import java.net.URL;
  * @author janikoskela
  */
 final public class Connection {
-    
-    private final static int TIME_OUT_LENGTH = 2000;
-    private final static int HTTP_STATUS_OK = 200;
 
     public static String sendRequest(String url) throws IOException {
-        URL u = new URL(url);
-        HttpURLConnection urlConnection = (HttpURLConnection) u.openConnection();
-        urlConnection.setReadTimeout(TIME_OUT_LENGTH);
-        int responseCode = urlConnection.getResponseCode();
-        if (responseCode != HTTP_STATUS_OK)
-            throw new IOException();
-        InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-        String out = Connection.readStream(in);
-        urlConnection.disconnect();
-        return out;
-    }
-    
-    private static String readStream(InputStream in) throws IOException {
-        String line;
-        BufferedReader r = new BufferedReader(new InputStreamReader(in));
-        StringBuilder sb = new StringBuilder();
-        while((line = r.readLine()) != null) 
-                sb.append(line);
-        return sb.toString();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        String resp = null;
+        try {
+            HttpGet httpGet = new HttpGet(url);
+
+            // Create a custom response handler
+            ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
+
+                @Override
+                public String handleResponse(
+                        final HttpResponse response) throws ClientProtocolException, IOException {
+                    int status = response.getStatusLine().getStatusCode();
+                    if (status >= 200 && status < 300) {
+                        HttpEntity entity = response.getEntity();
+                        return entity != null ? EntityUtils.toString(entity) : null;
+                    } else {
+                        throw new ClientProtocolException("Unexpected response status: " + status);
+                    }
+                }
+
+            };
+            resp = httpClient.execute(httpGet, responseHandler);
+
+        } catch (Exception ex) {}
+        finally {
+            httpClient.close();
+            return resp;
+        }
     }
 }

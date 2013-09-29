@@ -7,7 +7,9 @@ import com.urhola.cheddar.connection.Connection;
 import com.urhola.cheddar.resource.common.Coordinate;
 import com.urhola.cheddar.util.Utils;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.net.URLEncoder;
 import java.util.List;
 import net.sf.oval.ConstraintViolation;
 import net.sf.oval.Validator;
@@ -19,6 +21,7 @@ import net.sf.oval.Validator;
 public abstract class Request {
     
     private static final String BASE_URL = "http://api.reittiopas.fi/hsl/prod/?request=";
+    private static final String ENCODING_UTF8 = "UTF-8";
 
     private void validateRequest() throws IllegalArgumentException {
         Validator validator = new Validator();
@@ -41,8 +44,11 @@ public abstract class Request {
                     value = ((Coordinate)fields[i].get(this)).toString();
                 else    
                     value = fields[i].get(this).toString();
-                if (value != null) 
-                    requestUrl += key + "=" + value + "&";
+                if (value != null) {
+                    try {
+                        requestUrl += key + "=" + URLEncoder.encode(value, ENCODING_UTF8) + "&";
+                    } catch (UnsupportedEncodingException es) {}
+                }
             } catch (IllegalArgumentException | IllegalAccessException | NullPointerException ex) {
                 continue;
             }
@@ -59,6 +65,7 @@ public abstract class Request {
     public <T>List<T> execute() throws IllegalArgumentException, IOException {
         this.validateRequest();
         String url = this.getUrl();
+        System.out.println(url);
         String resp = Connection.sendRequest(url);
         return this.parseResponse(resp);
     }

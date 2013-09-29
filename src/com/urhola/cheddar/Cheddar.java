@@ -11,9 +11,6 @@ import com.urhola.cheddar.request.RouteRequest;
  */
 final public class Cheddar {
     
-    private static String apiUsername;
-    private static String apiPassword;
-    
     public static GeoCodingRequest createGeoCodingRequest() throws IllegalArgumentException {
         return RequestFactory.createGeoCodingRequest();
     }
@@ -27,10 +24,10 @@ final public class Cheddar {
     }
     
     public static void setApiUsername(String username) {
-        Credential.setApiUsernmae(apiUsername);
+        Credential.setApiUsernmae(username);
     }
 
     public static void setApiPassword(String password) {
-        Credential.setApiPassword(apiPassword);
+        Credential.setApiPassword(password);
     }
 }

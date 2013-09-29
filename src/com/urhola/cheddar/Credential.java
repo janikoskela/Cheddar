@@ -5,15 +5,15 @@ package com.urhola.cheddar;
  * @author janikoskela
  */
 public final class Credential {
-    public static String ApiUsername;
-    public static String ApiPassword;
+    private static String ApiUsername;
+    private static String ApiPassword;
 
     public static String getApiUsernmae() {
         return ApiUsername;
     }
 
-    public static void setApiUsernmae(String ApiUsernmae) {
-        Credential.ApiUsername = ApiUsernmae;
+    public static void setApiUsernmae(String ApiUsername) {
+        Credential.ApiUsername = ApiUsername;
     }
 
     public static String getApiPassword() {
