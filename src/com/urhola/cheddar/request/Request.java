@@ -49,7 +49,11 @@ public abstract class Request {
                         requestUrl += key + "=" + URLEncoder.encode(value, ENCODING_UTF8) + "&";
                     } catch (UnsupportedEncodingException es) {}
                 }
-            } catch (IllegalArgumentException | IllegalAccessException | NullPointerException ex) {
+            } catch (IllegalArgumentException e) {
+                continue;
+            } catch (IllegalAccessException ex) {
+                continue;
+            } catch (NullPointerException ee) {
                 continue;
             }
         }

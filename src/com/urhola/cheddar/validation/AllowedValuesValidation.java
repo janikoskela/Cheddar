@@ -19,7 +19,7 @@ public class AllowedValuesValidation extends AbstractAnnotationCheck<AllowedValu
     
     @Override
     public void configure(AllowedValues constraintAnnotation) {
-        this.allowedValues = new ArrayList<>();
+        this.allowedValues = new ArrayList<String>();
         this.allowedValues.addAll(Arrays.asList(constraintAnnotation.value()));
         super.configure(constraintAnnotation);
     }
