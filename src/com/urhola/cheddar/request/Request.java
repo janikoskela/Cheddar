@@ -69,7 +69,6 @@ public abstract class Request {
     public <T>List<T> execute() throws IllegalArgumentException, IOException {
         this.validateRequest();
         String url = this.getUrl();
-        System.out.println(url);
         String resp = Connection.sendRequest(url);
         return this.parseResponse(resp);
     }
