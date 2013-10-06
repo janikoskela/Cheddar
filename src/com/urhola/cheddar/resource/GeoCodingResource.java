@@ -7,7 +7,7 @@ import com.urhola.cheddar.resource.geocoding.Details;
  *
  * @author janikoskela
  */
-public class GeoCodingResource {
+public class GeoCodingResource implements Resource {
 
     private String locType;
     private String locTypeId;

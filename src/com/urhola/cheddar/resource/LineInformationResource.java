@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author janikoskela
  */
-public class LineInformationResource {
+public class LineInformationResource implements Resource {
 
     private String code;
     private String code_short;

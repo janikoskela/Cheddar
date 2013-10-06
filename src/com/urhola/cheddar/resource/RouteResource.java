@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author janikoskela
  */
-public class RouteResource<T> {
+public class RouteResource<T> implements Resource {
 
     private String length;
     private String duration;
