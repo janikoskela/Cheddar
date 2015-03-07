@@ -24,7 +24,7 @@ final public class Connection {
         urlConnection.setReadTimeout(TIME_OUT_LENGTH);
         int responseCode = urlConnection.getResponseCode();
         if (responseCode != HTTP_STATUS_OK)
-            throw new IOException();
+            throw new IOException("Server returned error. This may be caused by invalid username and/or password");
         InputStream in = new BufferedInputStream(urlConnection.getInputStream());
         String out = Connection.readStream(in);
         urlConnection.disconnect();
