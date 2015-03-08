@@ -1,6 +1,5 @@
 package com.hsl.journeyplanner.request;
 
-import com.hsl.journeyplanner.annotation.AllowedStrings;
 import com.hsl.journeyplanner.annotation.Title;
 import com.hsl.journeyplanner.parse.ParseFactory;
 import com.hsl.journeyplanner.resource.RouteResource;
@@ -11,8 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import net.sf.oval.constraint.NotNull;
-import net.sf.oval.constraint.Range;
 
 /**
 * <h1>Route request</h1>
@@ -35,7 +32,6 @@ public class RouteRequest extends Request {
     /**
      * Starting coordinates.
      */
-    @NotNull
     @Title("from")
     private Coordinate from;
     
@@ -48,7 +44,6 @@ public class RouteRequest extends Request {
     /**
      * Ending coordinates.
      */
-    @NotNull
     @Title("to")
     private Coordinate to;
     
@@ -57,7 +52,6 @@ public class RouteRequest extends Request {
      * See timeType below
      */
     @Title("date")
-    @Range(min=8, max=8)
     private String date;
         
     /**
@@ -65,14 +59,12 @@ public class RouteRequest extends Request {
      * See timeType below
      */
     @Title("time")
-    @Range(min=4, max=4)
     private String time;
     
     /**
      * Time of the request.
      */
     @Title("timetype")
-    @AllowedStrings({"departure", "arrival"})
     private TimeType timeType;
     
     /**
@@ -85,42 +77,36 @@ public class RouteRequest extends Request {
      * Ticket zone.
      */
     @Title("zone")
-    @AllowedStrings({"helsinki", "espoo", "whole", "region", "vantaa"})
     private TicketZone zone;
     
     /**
      * Transport types.
      */
     @Title("transport_types")
-    @AllowedStrings({"all", "bus", "train", "metro", "tram", "service", "uline", "ferry", "walk"})
     private List<TransportType> transportTypes;
         
     /**
      * Mode costs for different transport types.
      */
     @Title("optimize")
-    @AllowedStrings({"default", "fastest", "least_transfers", "least_walking"})
     private OptimizeMode optimize;
     
     /**
      * Walking speed (m/min)
      */
     @Title("walk_speed")
-    @Range(min=1, max=500)
     private int walkSpeed = 70;
     
     /**
      * Detail level of the response.
      */
     @Title("detail")
-    @AllowedStrings({"limited", "full", "normal"})
     private Detail detail = Detail.NORMAL;
     
     /**
      * Number of routes in the response.
      */
     @Title("show")
-    @Range(min=1, max=5)
     private int show = 3;
     
     /**

@@ -1,14 +1,10 @@
 package com.hsl.journeyplanner.request;
 
-import com.hsl.journeyplanner.annotation.AllowedStrings;
 import com.hsl.journeyplanner.annotation.Title;
 import com.hsl.journeyplanner.parse.ParseFactory;
 import com.hsl.journeyplanner.resource.GeocodingResource;
 import java.io.IOException;
 import java.util.List;
-import net.sf.oval.constraint.Length;
-import net.sf.oval.constraint.NotNull;
-import net.sf.oval.constraint.Range;
 
 /**
 * <h1>Geocoding request</h1>
@@ -24,8 +20,6 @@ public class GeocodingRequest extends Request {
     /**
      * Search term.
      */
-    @NotNull
-    @Length(min=3)
     @Title("key")
     private String searchTerm;
     
@@ -33,27 +27,23 @@ public class GeocodingRequest extends Request {
      * List of city names.
      */
     @Title("cities")
-    @AllowedStrings({"helsinki", "espoo", "kauniainen", "kerava", "sipoo", "kirkkonummi", "vantaa"})
     private List<City> cities;
     
     /**
      * Location types.
      */
     @Title("loc_types")
-    @AllowedStrings({"stop", "address"})
     private List<LocationType> locTypes;
     
     /**
      * Disable levenshtein error correction.
      */
-    @Range(min=0, max=1)
     @Title("disable_error_correction")
     private int disableErrorCorrection;
     
     /**
      * Disable unique stop names in the result.
      */
-    @Range(min=0, max=1)
     @Title("disable_unique_stop_names")
     private int disableUniqueStopNames;
     
@@ -96,11 +86,6 @@ public class GeocodingRequest extends Request {
 
     public GeocodingRequest(String searchTerm) {
         this.searchTerm = searchTerm;
-    }
-    
-    public GeocodingRequest(String searchTerm, boolean useClientValidation) {
-        this.searchTerm = searchTerm;
-        this.useClientValidation = useClientValidation;
     }
     
     /**

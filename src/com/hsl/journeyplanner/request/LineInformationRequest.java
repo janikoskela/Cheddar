@@ -1,13 +1,11 @@
 package com.hsl.journeyplanner.request;
 
-import com.hsl.journeyplanner.annotation.AllowedStrings;
 import com.hsl.journeyplanner.annotation.Title;
 import com.hsl.journeyplanner.parse.ParseFactory;
 import com.hsl.journeyplanner.resource.LineInformationResource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import net.sf.oval.constraint.NotNull;
 
 
 /**
@@ -25,14 +23,12 @@ public class LineInformationRequest extends Request {
      * List of query strings.
      */
     @Title("query")
-    @NotNull
     private List<String> query;
     
     /**
      * List of transport type ids.
      */
     @Title("transport_type")
-    @AllowedStrings({"1", "2", "3", "4", "5", "6", "7", "8", "12", "21", "22", "23", "24", "25", "36", "39"})
     private List<TransportType> transportType;
     
     private static final String ACTION_NAME = "lines";
@@ -68,17 +64,6 @@ public class LineInformationRequest extends Request {
     }
     
     /**
-     * Creates the request
-     *
-     * @param  queries   queries may be long JORE code, short code (like one shown on the bus) or string that will be searched from the name of the line (minimum length of the search string is 4). E.g. query=2102T 1|14|Tapiola
-     * @param  useClientValidation   validate request before sending it to Reittiopas API
-     */
-    public LineInformationRequest(List<String> queries, boolean useClientValidation) {
-        this.query = queries;
-        this.useClientValidation = useClientValidation;
-    }
-    
-    /**
      * Creates the request.
      *
      * @param  query   query may be long JORE code, short code (like one shown on the bus) or string that will be searched from the name of the line (minimum length of the search string is 4). E.g. query=2102T 1|14|Tapiola
@@ -87,19 +72,6 @@ public class LineInformationRequest extends Request {
         List<String> queries = new ArrayList<>();
         queries.add(query);
         this.query = queries;
-    }
-    
-    /**
-     * Creates the request.
-     *
-     * @param  query   query may be long JORE code, short code (like one shown on the bus) or string that will be searched from the name of the line (minimum length of the search string is 4). E.g. query=2102T 1|14|Tapiola
-     * @param  useClientValidation   validate request before sending it to Reittiopas API
-     */
-    public LineInformationRequest(String query, boolean useClientValidation) {
-        List<String> queries = new ArrayList<>();
-        queries.add(query);
-        this.query = queries;
-        this.useClientValidation = useClientValidation;
     }
     
     /**

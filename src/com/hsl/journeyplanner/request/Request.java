@@ -10,8 +10,6 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.List;
-import net.sf.oval.ConstraintViolation;
-import net.sf.oval.Validator;
 
 /**
  *
@@ -21,14 +19,6 @@ public abstract class Request {
     
     private static final String BASE_URL = "http://api.reittiopas.fi/hsl/prod/?request=";
     private static final String ENCODING_UTF8 = "UTF-8";
-    protected boolean useClientValidation = true;
-
-    private void validateRequest() throws IllegalArgumentException {
-        Validator validator = new Validator();
-        List<ConstraintViolation> violations = validator.validate(this);
-        if (violations.size() > 0)
-            throw new IllegalArgumentException(violations.toString());
-    }
     
     protected String getRequestUrl() {
         String requestUrl = "";
@@ -67,8 +57,6 @@ public abstract class Request {
     }
     
     public <T>List<T> execute() throws IllegalArgumentException, IOException {
-        if (this.useClientValidation)
-            this.validateRequest();
         String url = this.getUrl();
         String resp = Connection.sendRequest(url);
         return this.parseResponse(resp);
