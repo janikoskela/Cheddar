@@ -1,7 +1,9 @@
-HSL Journey Planner Library
+HSL Journey Planner Library without client validation
 ===========
 
 Simple java client library called Cheddar for the use of HSL's (Helsinki Regional Transport Authority) [Journey planner interface (v2)](http://developer.reittiopas.fi/pages/en/home.php). Creates requests, validates them and finally sends them to HSL's API. After sending Library maps the response into classes which are then ridicously easy to use. This library was originally developed to be used with Android.
+
+This version is smaller since it doesn't validate given parameters.
 
 Getting started
 -
