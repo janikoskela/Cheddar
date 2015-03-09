@@ -5,7 +5,7 @@ Simple java client library for the use of HSL's (Helsinki Regional Transport Aut
 
 Getting started
 -
-Usage requires an account which can be requested [here](http://developer.reittiopas.fi/pages/en/account-request.php). Once account is created use libs main file (Cheddar.java) to set account credentials. Main file can also create requests. Once one has created request and set valid credentials request can be executed. When request is executed its parameters will be validated, IllegalArgumentException is thrown if validation errors are found. If request parameters are valid library will send the request via HTTP protocol and parse response. Responses are mapped into classes depending on the request type.
+Usage requires an account which can be requested [here](http://developer.reittiopas.fi/pages/en/account-request.php). Once account is created use libs main file (JourneyPlanner.java) to set account credentials. Main file can also create requests. Once one has created request and set valid credentials request can be executed. When request is executed its parameters will be validated, IllegalArgumentException is thrown if validation errors are found. If request parameters are valid library will send the request via HTTP protocol and parse response. Responses are mapped into classes depending on the request type.
 
 Supported API calls
 -
