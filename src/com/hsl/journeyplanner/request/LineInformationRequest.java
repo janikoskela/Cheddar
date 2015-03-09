@@ -32,7 +32,6 @@ public class LineInformationRequest extends Request {
      * List of transport type ids.
      */
     @Title("transport_type")
-    @AllowedStrings({"1", "2", "3", "4", "5", "6", "7", "8", "12", "21", "22", "23", "24", "25", "36", "39"})
     private List<TransportType> transportType;
     
     private static final String ACTION_NAME = "lines";

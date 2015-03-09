@@ -72,7 +72,6 @@ public class RouteRequest extends Request {
      * Time of the request.
      */
     @Title("timetype")
-    @AllowedStrings({"departure", "arrival"})
     private TimeType timeType;
     
     /**
@@ -85,21 +84,18 @@ public class RouteRequest extends Request {
      * Ticket zone.
      */
     @Title("zone")
-    @AllowedStrings({"helsinki", "espoo", "whole", "region", "vantaa"})
     private TicketZone zone;
     
     /**
      * Transport types.
      */
     @Title("transport_types")
-    @AllowedStrings({"all", "bus", "train", "metro", "tram", "service", "uline", "ferry", "walk"})
     private List<TransportType> transportTypes;
         
     /**
      * Mode costs for different transport types.
      */
     @Title("optimize")
-    @AllowedStrings({"default", "fastest", "least_transfers", "least_walking"})
     private OptimizeMode optimize;
     
     /**
@@ -113,7 +109,6 @@ public class RouteRequest extends Request {
      * Detail level of the response.
      */
     @Title("detail")
-    @AllowedStrings({"limited", "full", "normal"})
     private Detail detail = Detail.NORMAL;
     
     /**

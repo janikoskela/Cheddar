@@ -33,14 +33,12 @@ public class GeocodingRequest extends Request {
      * List of city names.
      */
     @Title("cities")
-    @AllowedStrings({"helsinki", "espoo", "kauniainen", "kerava", "sipoo", "kirkkonummi", "vantaa"})
     private List<City> cities;
     
     /**
      * Location types.
      */
     @Title("loc_types")
-    @AllowedStrings({"stop", "address"})
     private List<LocationType> locTypes;
     
     /**
