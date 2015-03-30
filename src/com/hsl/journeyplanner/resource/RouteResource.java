@@ -1,6 +1,7 @@
 package com.hsl.journeyplanner.resource;
 
 import com.hsl.journeyplanner.resource.route.Leg;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
 *
 * @author  Koskela Jani
 */
-public class RouteResource<T> implements Resource {
+final public class RouteResource<T> implements Serializable {
 
     /**
      * Length of the route in meters.

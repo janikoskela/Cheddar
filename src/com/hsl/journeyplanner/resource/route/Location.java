@@ -1,6 +1,7 @@
 package com.hsl.journeyplanner.resource.route;
 
 import com.hsl.journeyplanner.resource.common.Coordinate;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,7 +12,7 @@ import java.util.Locale;
  *
  * @author  Koskela Jani
  */
-public class Location {
+final public class Location implements Serializable{
 
     /**
      * Coordinate of the location.

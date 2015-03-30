@@ -1,6 +1,7 @@
 package com.hsl.journeyplanner.resource;
 
 import com.hsl.journeyplanner.resource.lineinformation.LineStop;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
 *
 * @author  Koskela Jani
 */
-public class LineInformationResource implements Resource {
+final public class LineInformationResource implements Serializable {
 
     /**
      * Unique, long code of the line, e.g. 2102T 1.
