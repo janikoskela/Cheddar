@@ -5,7 +5,9 @@ import com.google.gson.reflect.TypeToken;
 import com.hsl.journeyplanner.resource.GeocodingResource;
 import com.hsl.journeyplanner.resource.LineInformationResource;
 import com.hsl.journeyplanner.resource.RouteResource;
+import com.hsl.journeyplanner.resource.route.Leg;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,9 +20,14 @@ public class ParseFactory {
         return parse(response, listType);
     }
     
-    public static List<RouteResource> parseRouteResponse(String response) {
-        Type listType = new TypeToken<List<List<RouteResource>>>(){}.getType();
-        return (List<RouteResource>) parse(response, listType).get(0);
+    public static List<RouteResource<List<Leg>>> parseRouteResponse(String response) {
+        Type listType = new TypeToken<List<List<RouteResource<List<Leg>>>>>(){}.getType();
+        List<List<RouteResource<List<Leg>>>> res = parse(response, listType);
+        List<RouteResource<List<Leg>>> result = new ArrayList<>();
+        for (List<RouteResource<List<Leg>>> resChild : res) {
+            result.add(resChild.get(0));
+        }
+        return result;
     }
     
     public static List<LineInformationResource> parseLineInformationResponse(String response) {
