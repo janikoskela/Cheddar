@@ -1,12 +1,14 @@
 package com.hsl.journeyplanner.resource.common;
 
+import java.io.Serializable;
+
 /**
 * <h1>Coordinate resource</h1>
 * Describes a coordinate
 * 
 * @author  Koskela Jani
 */
-public class Coordinate {
+final public class Coordinate implements Serializable {
     /**
      * X-coordinate.
      */

@@ -1,12 +1,14 @@
 package com.hsl.journeyplanner.resource.lineinformation;
 
+import java.io.Serializable;
+
 /**
 * <h1>Line stop resource</h1>
 * Describes stops through which the line passes
 * 
 * @author  Koskela Jani
 */
-public class LineStop {
+final public class LineStop implements Serializable{
     
     /**
      * An address of the stop

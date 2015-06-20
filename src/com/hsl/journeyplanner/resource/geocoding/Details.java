@@ -1,5 +1,7 @@
 package com.hsl.journeyplanner.resource.geocoding;
 
+import java.io.Serializable;
+
 /**
 * <h1>Details about a location</h1>
 * Detailed information about the location such as houseNumber for addresses, 
@@ -7,7 +9,7 @@ package com.hsl.journeyplanner.resource.geocoding;
 * 
 * @author  Koskela Jani
 */
-public class Details {
+final public class Details implements Serializable{
     /**
      * House number.
     */

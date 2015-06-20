@@ -1,6 +1,7 @@
 package com.hsl.journeyplanner.resource;
 
 import com.hsl.journeyplanner.resource.lineinformation.LineStop;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
 *
 * @author  Koskela Jani
 */
-public class LineInformationResource implements Resource {
+final public class LineInformationResource implements Serializable {
 
     /**
      * Unique, long code of the line, e.g. 2102T 1.
@@ -63,7 +64,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  code_short   short code
      */
-    public String getCode_short() {
+    public String getCodeShort() {
         return code_short;
     }
 
@@ -72,7 +73,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  transport_type_id   transport type id
      */
-    public int getTransport_type_id() {
+    public int getTransportTypeId() {
         return Integer.parseInt(transport_type_id);
     }
     
@@ -81,7 +82,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  line_start   start stop name
      */
-    public String getLine_start() {
+    public String getLineStart() {
         return line_start;
     }
 
@@ -90,7 +91,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  line_end   end stop name
      */
-    public String getLine_end() {
+    public String getLineEnd() {
         return line_end;
     }
 
@@ -108,7 +109,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  timetable_url   timetable url
      */
-    public String getTimetable_url() {
+    public String getTimetableUrl() {
         return timetable_url;
     }
 
@@ -117,7 +118,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  line_shape   shape of line
      */
-    public String getLine_shape() {
+    public String getLineShape() {
         return line_shape;
     }
 
@@ -126,7 +127,7 @@ public class LineInformationResource implements Resource {
      *
      * @return  line_stops   line stops
      */
-    public List<LineStop> getLine_stops() {
+    public List<LineStop> getLineStops() {
         return line_stops;
     }
 }

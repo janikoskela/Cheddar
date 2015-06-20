@@ -1,5 +1,6 @@
 package com.hsl.journeyplanner.resource.route;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
 *
 * @author  Koskela Jani
 */
-public class Leg {
+final public class Leg implements Serializable {
     /**
      * Length of the leg in meters.
      */

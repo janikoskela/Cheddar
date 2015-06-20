@@ -2,6 +2,7 @@ package com.hsl.journeyplanner.resource;
 
 import com.hsl.journeyplanner.resource.common.Coordinate;
 import com.hsl.journeyplanner.resource.geocoding.Details;
+import java.io.Serializable;
 
 /**
 * <h1>Geocoding resource</h1>
@@ -10,7 +11,7 @@ import com.hsl.journeyplanner.resource.geocoding.Details;
 *
 * @author  Koskela Jani
 */
-public class GeocodingResource implements Resource {
+final public class GeocodingResource implements Serializable {
 
     /**
      * Type of the location: street, address, poi (point of interest) or stop.

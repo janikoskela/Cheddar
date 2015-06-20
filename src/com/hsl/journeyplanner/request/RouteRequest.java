@@ -216,7 +216,7 @@ public class RouteRequest extends Request {
     }
 
     @Override
-    protected List<RouteResource> parseResponse(String response) {
+    protected List<RouteResource<List<Leg>>> parseResponse(String response) {
         return ParseFactory.parseRouteResponse(response);
     }
 
