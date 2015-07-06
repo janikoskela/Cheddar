@@ -1,12 +1,12 @@
 package com.hsl.journeyplanner.request;
 
-import com.hsl.journeyplanner.annotation.AllowedStrings;
 import com.hsl.journeyplanner.annotation.Title;
 import com.hsl.journeyplanner.parse.ParseFactory;
 import com.hsl.journeyplanner.resource.RouteResource;
 import com.hsl.journeyplanner.resource.common.Coordinate;
 import com.hsl.journeyplanner.resource.route.Leg;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -57,7 +57,6 @@ public class RouteRequest extends Request {
      * See timeType below
      */
     @Title("date")
-    @Range(min=8, max=8)
     private String date;
         
     /**
@@ -65,7 +64,6 @@ public class RouteRequest extends Request {
      * See timeType below
      */
     @Title("time")
-    @Range(min=4, max=4)
     private String time;
     
     /**
@@ -257,13 +255,54 @@ public class RouteRequest extends Request {
     }
 
     /**
+     * Gets starting coordinates.
+     *
+     * @return  from   starting coordinates
+     */
+    public Coordinate getFrom() {
+        return from;
+    }
+
+    /**
+     * Gets coordinates where route must go by.
+     *
+     * @return  via   via coordinates
+     */
+    public Coordinate getVia() {
+        return via;
+    }
+
+    /**
+     * Gets ending coordinates.
+     *
+     * @return  to   ending coordinates
+     */
+    public Coordinate getTo() {
+        return to;
+    }
+
+    /**
      * Sets date.
      *
      * @param  date date. Default current date
      */
     public void setDate(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDD", Locale.ENGLISH);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
         this.date = sdf.format(date);
+    }
+    
+    /**
+     * Gets date.
+     *
+     * @return  date date. Default current date
+     */
+    public Date getDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
+        try {
+            return sdf.parse(this.date);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
@@ -271,9 +310,23 @@ public class RouteRequest extends Request {
      *
      * @param  time time. Default current time
      */
-    public void setTime(String time) {
-        SimpleDateFormat sdf = new SimpleDateFormat("HHMM", Locale.ENGLISH);
+    public void setTime(Date time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HHmm", Locale.ENGLISH);
         this.time = sdf.format(time);
+    }
+    
+    /**
+     * Gets time.
+     *
+     * @return  time time. Default current time
+     */
+    public Date getTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HHmm", Locale.ENGLISH);
+        try {
+            return sdf.parse(this.time);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
@@ -284,6 +337,15 @@ public class RouteRequest extends Request {
     public void setTimeType(TimeType timeType) {
         this.timeType = timeType;
     }
+    
+    /**
+     * Gets thetTime of the request is for "arrival" or "departure".
+     *
+     * @return  timeType time type. Default TimeType.DEPARTURE
+     */
+    public TimeType getTimeType() {
+        return this.timeType;
+    }
 
     /**
      * Sets the minimum time spent at a via_point in minutes.
@@ -292,6 +354,15 @@ public class RouteRequest extends Request {
      */
     public void setViaTime(int viaTime) {
         this.viaTime = viaTime;
+    }
+    
+    /**
+     * Gets the minimum time spent at a via_point in minutes.
+     *
+     * @return  viaTime via time
+     */
+    public int getViaTime() {
+        return this.viaTime;
     }
 
     /**
@@ -302,6 +373,15 @@ public class RouteRequest extends Request {
     public void setZone(TicketZone zone) {
         this.zone = zone;
     }
+    
+    /**
+     * Gets ticket zone.
+     *
+     * @return  zone   Default no limitations
+     */
+    public TicketZone getZone() {
+        return this.zone;
+    }
 
     /**
      * Limits transport types to the request.
@@ -310,6 +390,15 @@ public class RouteRequest extends Request {
      */
     public void setTransportTypes(List<TransportType> transportTypes) {
         this.transportTypes = transportTypes;
+    }
+    
+    /**
+     * Gets transport types.
+     *
+     * @return  transportTypes   Default TransportTypes.ALL
+     */
+    public List<TransportType> getTransportTypes() {
+        return this.transportTypes;
     }
 
     /**
@@ -320,6 +409,15 @@ public class RouteRequest extends Request {
     public void setOptimize(OptimizeMode optimize) {
         this.optimize = optimize;
     }
+    
+    /**
+     * Gets the optimization mode.
+     *
+     * @return  optimize   Default OptimizeMode.DEFAULT
+     */
+    public OptimizeMode getOptimize() {
+        return this.optimize;
+    }
 
     /**
      * Sets the walking speed.
@@ -328,6 +426,15 @@ public class RouteRequest extends Request {
      */
     public void setWalkSpeed(int walkSpeed) {
         this.walkSpeed = walkSpeed;
+    }
+    
+    /**
+     * Gets the walking speed.
+     *
+     * @return  walkSpeed   Default 70 m/min, range 1-500.
+     */
+    public int getWalkSpeed() {
+        return this.walkSpeed;
     }
 
     /**
@@ -338,6 +445,15 @@ public class RouteRequest extends Request {
     public void setDetail(Detail detail) {
         this.detail = detail;
     }
+    
+    /**
+     * Gets the detail level of the response.
+     *
+     * @return  detail
+     */
+    public Detail getDetail() {
+        return this.detail;
+    }
 
     /**
      * Sets the number of routes in the response.
@@ -346,6 +462,15 @@ public class RouteRequest extends Request {
      */
     public void setShow(int show) {
         this.show = show;
+    }
+    
+    /**
+     * Gets the number of routes in the response.
+     *
+     * @return  show   number of routes in the response.
+     */
+    public int getShow() {
+        return this.show;
     }
 }
 
