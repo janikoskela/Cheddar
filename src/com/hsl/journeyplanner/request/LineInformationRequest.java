@@ -105,6 +105,24 @@ public class LineInformationRequest extends Request {
     }
 
     /**
+     * Gets a list of queries
+     *
+     * @return  queries   queries may be long JORE code, short code (like one shown on the bus) or string that will be searched from the name of the line (minimum length of the search string is 4). E.g. query=2102T 1|14|Tapiola
+     */
+    public List<String> getQuery() {
+        return query;
+    }
+
+    /**
+     * Gets transport types
+     *
+     * @return  transportTypes   list of transport types
+     */
+    public List<TransportType> getTransportType() {
+        return transportType;
+    }
+
+    /**
      * Executes request
      *
      * @return  a list of LineInformationResource

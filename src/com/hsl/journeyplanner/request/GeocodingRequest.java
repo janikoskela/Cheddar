@@ -147,6 +147,51 @@ public class GeocodingRequest extends Request {
     public void setDisableUniqueStopNames(boolean disableUniqueStopNames) {
         this.disableUniqueStopNames = (disableUniqueStopNames) ? 1 : 0;
     }
+
+    /**
+     * Gets the search term.
+     *
+     * @return  searchTerm   search term. Min length is 3 characters
+     */
+    public String getSearchTerm() {
+        return searchTerm;
+    }
+
+    /**
+     * Gets cities
+     *
+     * @return  cities   list of cities. Allowed values are "helsinki", "espoo", "kauniainen", "kerava", "sipoo", "kirkkonummi" and "vantaa"
+     */
+    public List<City> getCities() {
+        return cities;
+    }
+
+    /**
+     * Gets the location type limits.
+     *
+     * @return  locTypes   list of location types. Allowed values are "stop" and "address"
+     */
+    public List<LocationType> getLocTypes() {
+        return locTypes;
+    }
+
+    /**
+     * Gets information if levenshtein error correction is used or not.
+     *
+     * @return  disableErrorCorrection   if true error correction is not in use, if false error correction is in use
+     */
+    public int getDisableErrorCorrection() {
+        return disableErrorCorrection;
+    }
+
+    /**
+     * Gets information if unique stop names are included in the result.
+     *
+     * @return  disableUniqueStopNames   if true all stops are shown in the result, if false only one stop is included in the result for stops with same name
+     */
+    public int getDisableUniqueStopNames() {
+        return disableUniqueStopNames;
+    }
     
     @Override
     protected String getActionName() {

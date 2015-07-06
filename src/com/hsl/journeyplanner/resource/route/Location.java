@@ -20,12 +20,12 @@ final public class Location implements Serializable{
     private Coordinate coord;
     
     /**
-     * Arrival time to the location, format YYYYMMDDHHMM.
+     * Arrival time to the location, format yyyyMMddHHmm.
      */
     private String arrTime;
     
     /**
-     * Departure time from the location, format YYYYMMDDHHMM.
+     * Departure time from the location, format yyyyMMddHHmm.
      */
     private String depTime;
     
@@ -60,7 +60,7 @@ final public class Location implements Serializable{
      */
     public Date getArrTime() {
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDDHHMM", Locale.ENGLISH);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm", Locale.ENGLISH);
         try {
             cal.setTime(sdf.parse(arrTime));
         } catch (ParseException e) {
@@ -70,13 +70,13 @@ final public class Location implements Serializable{
     }
 
     /**
-     * Gets the departure time to the location, format YYYYMMDDHHMM.
+     * Gets the departure time to the location, format yyyyMMddHHmm.
      *
      * @return  depTime   departure time
      */
     public Date getDepTime() {
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDDHHMM", Locale.ENGLISH);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm", Locale.ENGLISH);
         try {
             cal.setTime(sdf.parse(depTime));
         } catch (ParseException e) {
