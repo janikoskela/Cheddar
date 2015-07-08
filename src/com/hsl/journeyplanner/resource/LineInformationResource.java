@@ -130,4 +130,40 @@ final public class LineInformationResource implements Serializable {
     public List<LineStop> getLineStops() {
         return line_stops;
     }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setCode_short(String code_short) {
+        this.code_short = code_short;
+    }
+
+    public void setTransport_type_id(String transport_type_id) {
+        this.transport_type_id = transport_type_id;
+    }
+
+    public void setLine_start(String line_start) {
+        this.line_start = line_start;
+    }
+
+    public void setLine_end(String line_end) {
+        this.line_end = line_end;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTimetable_url(String timetable_url) {
+        this.timetable_url = timetable_url;
+    }
+
+    public void setLine_shape(String line_shape) {
+        this.line_shape = line_shape;
+    }
+
+    public void setLine_stops(List<LineStop> line_stops) {
+        this.line_stops = line_stops;
+    }
 }
