@@ -55,5 +55,17 @@ final public class RouteResource<T> implements Serializable {
     public List<Leg> getLegs() {
         return legs;
     }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public void setLegs(List<Leg> legs) {
+        this.legs = legs;
+    }
 }
 

@@ -126,4 +126,40 @@ final public class GeocodingResource implements Serializable {
     public String getCity() {
         return city;
     }
+
+    public void setLocType(String locType) {
+        this.locType = locType;
+    }
+
+    public void setLocTypeId(String locTypeId) {
+        this.locTypeId = locTypeId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMatchedName(String matchedName) {
+        this.matchedName = matchedName;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCoords(String coords) {
+        this.coords = coords;
+    }
+
+    public void setCoordinates(Coordinate coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public void setDetails(Details details) {
+        this.details = details;
+    }
 }
