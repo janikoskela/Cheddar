@@ -3,6 +3,7 @@ package com.hsl.journeyplanner;
 import com.hsl.journeyplanner.request.GeocodingRequest;
 import com.hsl.journeyplanner.request.LineInformationRequest;
 import com.hsl.journeyplanner.request.RequestFactory;
+import com.hsl.journeyplanner.request.ReverseGeocodingRequest;
 import com.hsl.journeyplanner.request.RouteRequest;
 import com.hsl.journeyplanner.resource.common.Coordinate;
 import java.util.List;
@@ -29,6 +30,18 @@ final public class JourneyPlanner {
      */
     public static GeocodingRequest createGeocodingRequest(String key) throws IllegalArgumentException {
         return RequestFactory.createGeoCodingRequest(key);
+    }
+    
+    /**
+     * Creates and returns a reverse GeoCodingRequest. 
+     * 
+     * @param  coordinate  Coordinate
+     *
+     * @return      ReverseGeoCodingRequest which upon being executed returns the coordinates and the names of the POIs, stops and addresses
+     * @throws      IllegalArgumentException when given parameters are invalid
+     */
+    public static ReverseGeocodingRequest createReverseGeocodingRequest(Coordinate coordinate) throws IllegalArgumentException {
+        return RequestFactory.createReverseGeoCodingRequest(coordinate);
     }
     
     /**

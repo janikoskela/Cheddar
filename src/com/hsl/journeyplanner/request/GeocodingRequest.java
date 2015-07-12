@@ -1,6 +1,5 @@
 package com.hsl.journeyplanner.request;
 
-import com.hsl.journeyplanner.annotation.AllowedStrings;
 import com.hsl.journeyplanner.annotation.Title;
 import com.hsl.journeyplanner.parse.ParseFactory;
 import com.hsl.journeyplanner.resource.GeocodingResource;
