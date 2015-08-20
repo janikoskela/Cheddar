@@ -1,5 +1,6 @@
 package com.hsl.journeyplanner;
 
+import com.hsl.journeyplanner.Settings.CoordinateSystem;
 import com.hsl.journeyplanner.request.GeocodingRequest;
 import com.hsl.journeyplanner.request.LineInformationRequest;
 import com.hsl.journeyplanner.request.RequestFactory;
@@ -98,5 +99,13 @@ final public class JourneyPlanner {
      */
     public static void setApiPassword(String password) {
         Credential.setApiPassword(password);
+    }
+    
+    public static void setInCoordinateSystem(CoordinateSystem coordinateSystem) {
+        Settings.setInCoordinateSystem(coordinateSystem);
+    }
+    
+    public static void setOutCoordinateSystem(CoordinateSystem coordinateSystem) {
+        Settings.setOutCoordinateSystem(coordinateSystem);
     }
 }

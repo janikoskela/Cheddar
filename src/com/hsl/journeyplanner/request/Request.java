@@ -1,6 +1,7 @@
 package com.hsl.journeyplanner.request;
 
 import com.hsl.journeyplanner.Credential;
+import com.hsl.journeyplanner.Settings;
 import com.hsl.journeyplanner.annotation.Title;
 import com.hsl.journeyplanner.connection.Connection;
 import com.hsl.journeyplanner.resource.common.Coordinate;
@@ -63,7 +64,7 @@ public abstract class Request {
     }
         
     private String getUrl() throws IllegalArgumentException {
-        return (BASE_URL + this.getActionName() + "&user=" + Credential.getApiUsernmae() + "&pass=" + Credential.getApiPassword() + "&format=json&" + this.getRequestUrl()).trim();
+        return (BASE_URL + this.getActionName() + "&user=" + Credential.getApiUsernmae() + "&pass=" + Credential.getApiPassword() + "&epsg_in=" + Settings.getInCoordinateSystem() + "&epsg_out=" + Settings.getOutCoordinateSystem() + "&format=json&" + this.getRequestUrl()).trim();
     }
     
     public <T>List<T> execute() throws IllegalArgumentException, IOException {
