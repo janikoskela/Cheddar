@@ -1,5 +1,6 @@
 package com.hsl.journeyplanner.resource.route;
 
+import com.hsl.journeyplanner.resource.common.Coordinate;
 import java.io.Serializable;
 import java.util.List;
 
@@ -30,6 +31,11 @@ final public class Leg implements Serializable {
      * Aarray of locations on the leg (limited detail only lists start and end locations).
      */
     private List<Location> locs;
+    
+    /**
+     * Shape (list of coordinates) of the leg (only in full detail).
+     */
+    private List<Coordinate> shape;
     
     /**
      * Gets the length of the leg in meters.
@@ -74,5 +80,14 @@ final public class Leg implements Serializable {
      */
     public List<Location> getLocs() {
         return locs;
+    }
+
+    /**
+     * Gets the list of coordinates of the leg.
+     *
+     * @return  shape   shapes
+     */
+    public List<Coordinate> getShape() {
+        return shape;
     }
 }
