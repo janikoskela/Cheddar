@@ -13,6 +13,10 @@ public abstract class RequestFactory {
         return new GeocodingRequest(key);
     }
     
+    public static ReverseGeocodingRequest createReverseGeoCodingRequest(Coordinate coordinate) throws IllegalArgumentException {
+        return new ReverseGeocodingRequest(coordinate);
+    }
+    
     public static RouteRequest createRouteRequest(Coordinate to, Coordinate from) throws IllegalArgumentException {
         return new RouteRequest(to, from);
     }

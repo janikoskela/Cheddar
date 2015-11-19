@@ -24,9 +24,11 @@ public class ParseFactory {
         Type listType = new TypeToken<List<List<RouteResource<List<Leg>>>>>(){}.getType();
         List<List<RouteResource<List<Leg>>>> res = parse(response, listType);
         List<RouteResource<List<Leg>>> result = new ArrayList<>();
-        for (List<RouteResource<List<Leg>>> resChild : res) {
-            result.add(resChild.get(0));
-        }
+        try {
+            for (List<RouteResource<List<Leg>>> resChild : res) {
+                result.add(resChild.get(0));
+            } 
+        } catch (Exception e) {}
         return result;
     }
     

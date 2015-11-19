@@ -53,6 +53,10 @@ final public class Location implements Serializable{
         return coord;
     }
     
+    public void setCoord(Coordinate coord) {
+        this.coord = coord;
+    }
+    
     /**
      * Gets the arrival time to the location.
      *
@@ -93,6 +97,15 @@ final public class Location implements Serializable{
     public String getName() {
         return name;
     }
+    
+    /**
+     * Sets the name of the location
+     *
+     * @param  name   location name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * Gets the long code of the location
@@ -102,14 +115,32 @@ final public class Location implements Serializable{
     public String getCode() {
         return code;
     }
+    
+    /**
+     * Sets the long code of the location
+     *
+     * @param  code   location code
+     */
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     /**
      * Gets the short code of the location
      *
-     * @return  shortCode   location code
+     * @return  shortCode   location short code
      */
     public String getShortCode() {
         return shortCode;
+    }
+        
+    /**
+     * Gets the short code of the location
+     *
+     * @param  shortCode   location short code
+     */
+    public void setShortCode(String shortCode) {
+        this.shortCode = shortCode;
     }
 
     /**
@@ -119,5 +150,14 @@ final public class Location implements Serializable{
      */
     public String getStopAddress() {
         return stopAddress;
+    }
+    
+    /**
+     * Sets the address of the stop
+     *
+     * @param  stopAddress   stop address
+     */
+    public void getStopAddress(String stopAddress) {
+        this.stopAddress = stopAddress;
     }
 }

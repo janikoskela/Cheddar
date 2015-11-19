@@ -14,3 +14,4 @@ Supported API calls
  - [Geocoding](http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#geocode): returns the coordinates and the names of the POIs, stops and addresses
  - [Routing between two coordinate points](http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#route)
  - [Line information](http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#lines)
+ - [Reverse geocoding](http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#reverse_geocode): Searches for a street address, poi or stop closest to a given coordinate
