@@ -24,27 +24,28 @@ public abstract class Request {
     protected String getRequestUrl() {
         String requestUrl = "";
         Field[] fields = this.getClass().getDeclaredFields();
-        for (int i = 0; i < fields.length; i++) {
+        for (Field field : fields) {
             try {
-                fields[i].setAccessible(true);
-                String key = fields[i].getAnnotation(Title.class).value();
+                field.setAccessible(true);
+                String key = field.getAnnotation(Title.class).value();
                 String value;
-                if (fields[i].get(this) instanceof List)
-                    value = Utils.convertListToString((List)fields[i].get(this));
-                else if (fields[i].get(this) instanceof Coordinate) 
-                    value = ((Coordinate)fields[i].get(this)).toString();
-                else    
-                    value = fields[i].get(this).toString();
+                if (field.get(this) instanceof List) {
+                    value = Utils.convertListToString((List) field.get(this));
+                } else if (field.get(this) instanceof Coordinate) {
+                    value = ((Coordinate) field.get(this)).toString();
+                } else {
+                    value = field.get(this).toString();
+                }
                 if (value != null) {
                     try {
                         requestUrl += key + "=" + URLEncoder.encode(value, ENCODING_UTF8) + "&";
                     } catch (UnsupportedEncodingException es) {}
                 }
-            } catch (IllegalArgumentException e) {
+            }catch (IllegalArgumentException e) {
                 continue;
-            } catch (IllegalAccessException ex) {
+            }catch (IllegalAccessException ex) {
                 continue;
-            } catch (NullPointerException ee) {
+            }catch (NullPointerException ee) {
                 continue;
             }
         }
