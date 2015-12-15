@@ -3,6 +3,7 @@ package com.hsl.journeyplanner.resource;
 import com.hsl.journeyplanner.resource.common.Coordinate;
 import com.hsl.journeyplanner.resource.geocoding.Details;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
 * <h1>Geocoding resource</h1>
@@ -161,5 +162,35 @@ final public class GeocodingResource implements Serializable {
 
     public void setDetails(Details details) {
         this.details = details;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        try {
+            if(this == obj)
+                return true;
+            if((obj == null) || (obj.getClass() != this.getClass()))
+                return false;
+            GeocodingResource res = (GeocodingResource) obj;
+            Coordinate resCoordinate = res.getCoordinates();
+            Coordinate c = this.getCoordinates();
+            if (c != null && resCoordinate != null) {
+                if (res.coordinates.getX() == this.coordinates.getX() && res.getName().equals(this.getName()) && res.coordinates.getY() == this.coordinates.getY())
+                    return true;
+            }
+            else {
+                if (res.getName().equals(this.getName()))
+                    return true;
+            }
+        } catch (Exception e) {}
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.name);
+        hash = 47 * hash + Objects.hashCode(this.coords);
+        return hash;
     }
 }
