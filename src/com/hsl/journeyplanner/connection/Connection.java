@@ -16,14 +16,13 @@ import java.net.URL;
 final public class Connection {
     
     private final static int TIME_OUT_LENGTH = 2000;
-    private final static int HTTP_STATUS_OK = 200;
 
     public static String sendRequest(String url) throws IOException {
         URL u = new URL(url);
         HttpURLConnection urlConnection = (HttpURLConnection) u.openConnection();
         urlConnection.setReadTimeout(TIME_OUT_LENGTH);
         int responseCode = urlConnection.getResponseCode();
-        if (responseCode != HTTP_STATUS_OK)
+        if (responseCode != HttpURLConnection.HTTP_OK)
             throw new IOException("Server returned error. This may be caused due to invalid username and/or password");
         InputStream in = new BufferedInputStream(urlConnection.getInputStream());
         String out = Connection.readStream(in);
