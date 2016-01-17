@@ -189,8 +189,8 @@ final public class GeocodingResource implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 47 * hash + Objects.hashCode(this.name);
-        hash = 47 * hash + Objects.hashCode(this.coords);
+        hash = 47 + hash + (this.name != null ? this.name.hashCode() : 0);
+        hash = 47 + hash + (this.coords != null ? this.coords.hashCode() : 0);
         return hash;
     }
 }
