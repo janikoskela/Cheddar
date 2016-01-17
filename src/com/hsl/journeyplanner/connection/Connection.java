@@ -15,7 +15,7 @@ import java.net.URL;
  */
 final public class Connection {
     
-    private final static int TIME_OUT_LENGTH = 2000;
+    private final static int TIME_OUT_LENGTH = 10000;
 
     public static String sendRequest(String url) throws IOException {
         URL u = new URL(url);
