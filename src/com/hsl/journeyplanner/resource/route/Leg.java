@@ -11,6 +11,24 @@ import java.util.List;
 * @author  Koskela Jani
 */
 final public class Leg implements Serializable {
+    public static final String ID_TRANSPORT_TYPE_HELSINKI_INTERNAL_BUS = "1";
+    public static final String ID_TRANSPORT_TYPE_TRAM = "2";
+    public static final String ID_TRANSPORT_TYPE_ESPOO_INTERNAL_BUS = "3";
+    public static final String ID_TRANSPORT_TYPE_VANTAA_INTERNAL_BUS = "4";
+    public static final String ID_TRANSPORT_TYPE_REGIONAL_BUS = "5";
+    public static final String ID_TRANSPORT_TYPE_METRO = "6";
+    public static final String ID_TRANSPORT_TYPE_FERRY = "7";
+    public static final String ID_TRANSPORT_TYPE_U_LINES = "8";
+    public static final String ID_TRANSPORT_TYPE_TRAIN = "12";
+    public static final String ID_TRANSPORT_TYPE_HELSINKI_SERVICE_LINES = "21";
+    public static final String ID_TRANSPORT_TYPE_HELSINKI_NIGHT_BUSES = "22";
+    public static final String ID_TRANSPORT_TYPE_ESPOO_SERVICE_LINES = "23";
+    public static final String ID_TRANSPORT_TYPE_VANTAA_SERVICE_LINES = "24";
+    public static final String ID_TRANSPORT_TYPE_REGION_NIGHT_BUSES = "25";
+    public static final String ID_TRANSPORT_TYPE_KIRKKONUMMI_INTERNAL_BUS_LINES = "36";
+    public static final String ID_TRANSPORT_TYPE_KERAVA_INTERNAL_BUS_LINES = "39";
+    public static final String ID_TRANSPORT_TYPE_WALK = "walk";
+    
     /**
      * Length of the leg in meters.
      */
